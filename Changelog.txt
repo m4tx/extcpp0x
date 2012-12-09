@@ -1,0 +1,4 @@
+Wersja 1.0 (10-12-2012)
+- Pierwsza wersja dodatku. Funkcje:
+  - Numerowanie kodu źródłowego
+  - Szybkie kopiowanie kodu do schowka
