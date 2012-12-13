@@ -29,7 +29,17 @@ Clipboard.copy = function(data) {
 }; 
 
 Clipboard.utilities.createTextArea();
+
 chrome.extension.onMessage.addListener(
-  function(request, sender, sendResponse) {
-	Clipboard.copy(request.txt);
+	function(request, sender, sendResponse) {
+		if (request.method == "copy") {
+			Clipboard.copy(request.txt);
+		}
+});
+chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+    if (request.method == "getLocalStorage") {
+		sendResponse({data: localStorage[request.key]});
+    } else {
+		sendResponse({});
+	}
 });

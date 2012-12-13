@@ -1,0 +1,70 @@
+/*
+ * options.css - ExtCpp0x's for Chrome options page stylesheet
+ * author: m4tx
+ * thanks for DejaVu - author of original cpp0x.pl's stylsheets
+ */
+
+input {
+    -webkit-transition: background, color 250ms ease-out !important;
+    transition: background, color 250ms ease-out !important;
+}
+
+html {
+	width: 100%;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+}
+
+body {
+	margin: 0px 20px 10px 20px;
+	background-image: url('../img/bg.png');
+}
+
+div#mainDiv {
+	font-size: 10pt;
+	margin: auto;
+	
+	width: 350px;
+	
+	margin-top: 10px;
+	box-shadow: 0px 1px 7px 3px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+
+div#mainDiv div.header {
+	padding: 5px 5px 0px 5px;
+	height: 25px;
+	color: white;
+	font-weight: bold;
+	font-size: 11pt;
+	text-align: center;
+	background: -webkit-linear-gradient(top,  #54c0e3 0%,#115991 100%);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+div#mainDiv div.content, div.warning, div.footer {
+	padding: 3px;
+	border: 1px solid #CCC;
+	border-top: 1px solid #BBB;
+	border-bottom: none;
+}
+
+div#mainDiv div.content {
+	background-color: #fff;
+	margin: 0px;
+	
+	border-top: none;
+}
+
+div#mainDiv div.footer {
+	background-color: #F7F7F7;
+	padding: 2px 2px;
+	
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.form {
+	text-align: right;
+}
+

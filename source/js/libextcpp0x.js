@@ -4,6 +4,14 @@
 
 $(".header").html("C/C++&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"#\" class=\"libextcpp0x_clhref\" rel=\"1\">Numeruj kod</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"#\" class=\"libextcpp0x_cchref\">Kopiuj kod do schowka</a>");
 
+chrome.extension.sendRequest({method: "getLocalStorage", key: "numeration"}, function(response) {
+	if (response.data == "true") {
+		$(".libextcpp0x_clhref").each(function() {
+			$(this).click();
+		});
+	}
+});
+
 var code;
 
 $(".libextcpp0x_clhref").click(function(ev){
@@ -25,11 +33,20 @@ $(".libextcpp0x_clhref").click(function(ev){
       text += "</ol>";
 
       $(this).parent().next().html(text);
+      
+      chrome.extension.sendRequest({method: "getLocalStorage", key: "numberColor"}, function(response) {
+		$(".libextcpp0x_nrol").css("color", "#" + (response.data == null ? "AFAFAF" : response.data));
+	  });
+	  chrome.extension.sendRequest({method: "getLocalStorage", key: "lineColor"}, function(response) {
+		$(".libextcpp0x_nrol li div").css("border-left", "5px solid #" + (response.data == null ? "6CE26C" : response.data));
+	  });
    }
    else
    {
       $(this).html("Numeruj kod");
       $(this).attr("rel", 1);
+      $(".libextcpp0x_nrol").removeAttr("style");
+      $(".libextcpp0x_nrol li div").removeAttr("style");
       var text = $(this).parent().next().html();
       text = text.replace(/<ol class=\"libextcpp0x_nrol\">/gi, '');
       text = text.replace(/<\/ol>/gi, '');
@@ -53,8 +70,7 @@ $(".libextcpp0x_cchref").click(function(ev){
       text = text.replace(/\&lt;/gi, '<');
       text = text.replace(/\&gt;/gi, '>');
       text = text.replace(/\&amp;/gi, '&');
-      
-      chrome.extension.sendMessage({txt: text});
+      chrome.extension.sendMessage({method: "copy", txt: text});
    }
    else
    {
@@ -64,7 +80,6 @@ $(".libextcpp0x_cchref").click(function(ev){
       text = text.replace(/\&lt;/gi, '<');
       text = text.replace(/\&gt;/gi, '>');
       text = text.replace(/\&amp;/gi, '&');
-      
-      chrome.extension.sendMessage({txt: text});
+      chrome.extension.sendMessage({method: "copy", txt: text});
    }
 });

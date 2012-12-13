@@ -1,3 +1,11 @@
+Wersja 1.1 (14-12-2012)
+- Dodano:
+  - Opcje dodatku:
+    - Możliwość automatycznego numerowania kodu po załadowaniu strony
+    - Zmiana kolorów (liczb i obramowania)
+- Zmieniono domyślne kolory numerów linii i obramowania
+- Drobne optymalizacje
+
 Wersja 1.0 (10-12-2012)
 - Pierwsza wersja dodatku. Funkcje:
   - Numerowanie kodu źródłowego
