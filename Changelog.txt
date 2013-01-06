@@ -1,3 +1,11 @@
+Wersja 1.2 (07-01-2013)
+- Dodano opcję szybkiej odpowiedzi
+- Dodano możliwość szybkiego cytowania postów
+- Dodano płynniejsze zmiany kolorów na stronie (i kilka innych efektów graficznych) za pomocą CSS3
+- Poprawiono:
+  - Błędne tytułowanie kodu napisanego w języku Haskell
+  - Błędne wyświetlanie ponumerowanego kodu w przypadku umieszczenia go w znacznikach <li>
+
 Wersja 1.1 (14-12-2012)
 - Dodano:
   - Opcje dodatku:
@@ -10,3 +18,4 @@ Wersja 1.0 (10-12-2012)
 - Pierwsza wersja dodatku. Funkcje:
   - Numerowanie kodu źródłowego
   - Szybkie kopiowanie kodu do schowka
+

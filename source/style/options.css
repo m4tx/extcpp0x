@@ -45,20 +45,19 @@ div#mainDiv div.header {
 div#mainDiv div.content, div.warning, div.footer {
 	padding: 3px;
 	border: 1px solid #CCC;
-	border-top: 1px solid #BBB;
-	border-bottom: none;
+	border-top: none;
+	border-bottom: 1px solid #BBB;
 }
 
 div#mainDiv div.content {
 	background-color: #fff;
-	margin: 0px;
-	
-	border-top: none;
+	margin: 0;
 }
 
 div#mainDiv div.footer {
 	background-color: #F7F7F7;
 	padding: 2px 2px;
+	border-bottom: 1px solid #CCC;
 	
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
@@ -68,3 +67,8 @@ div#mainDiv div.footer {
 	text-align: right;
 }
 
+div.Label {
+	font-weight: 700;
+	text-align: center;
+	text-decoration: underline;
+}

@@ -28,6 +28,32 @@ Clipboard.copy = function(data) {
 	document.body.removeChild(txt); 
 }; 
 
+function getDefaultValue(key) {
+	switch(key) {
+	case "defaultNr":
+		return "false";
+		break;
+	case "nrColor":
+		return "AFAFAF";
+		break;
+	case "borColor":
+		return "6CE26C";
+		break;
+	case "enFastreply":
+		return "true";
+		break;
+	case "enCite":
+		return "true";
+		break;
+	case "addEffects":
+		return "false";
+		break;
+	case "disHBar":
+		return "true";
+		break;
+	}
+}
+
 Clipboard.utilities.createTextArea();
 
 chrome.extension.onMessage.addListener(
@@ -38,8 +64,16 @@ chrome.extension.onMessage.addListener(
 });
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
     if (request.method == "getLocalStorage") {
-		sendResponse({data: localStorage[request.key]});
-    } else {
+		var storage = localStorage[request.key];
+		if (storage == null) {
+			storage = getDefaultValue(request.key);
+		}
+		sendResponse({data: storage});
+	} else if (request.method == "getDefaultValue") {
+		sendResponse({data: getDefaultValue(request.key)});
+    } else if (request.method == "getLocaledString") {
+		sendResponse({string: chrome.i18n.getMessage(request.string)});
+	} else {
 		sendResponse({});
 	}
 });

@@ -1,6 +1,6 @@
 {
 	"name": "ExtCpp0x",
-	"version": "1.1",
+	"version": "1.2",
 	"manifest_version": 2,	
 	"description": "__MSG_ext_description__",
 	"homepage_url": "http://m4tx.pl/",
@@ -22,9 +22,10 @@
 			"matches": [
 				"*://cpp0x.pl/*"
 			],
-			"css": ["style/libextcpp0x.css"],
-			"js": ["lib/jquery-1.8.3.js",
-			"js/libextcpp0x.js"]
+			"js": ["js/code.js",
+			       "js/style.js",
+			       "js/fastreply.js",
+			       "js/cite.js"]
 		}
 	],
 
