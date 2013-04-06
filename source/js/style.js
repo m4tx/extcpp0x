@@ -1,5 +1,5 @@
 // style.js - ExtCpp0x's module
-// author: programer1234
+// author: xevuel
 // Chrome port: m4tx
 
 var style = ".libextcpp0x_nrol" +
@@ -62,9 +62,9 @@ var style = ".libextcpp0x_nrol" +
 "}" +
 "";
 
-var tempStyle = ".libextcpp0x_nrol{color: #";
+var tempStyle = ".libextcpp0x_nrol{color: ";
 chrome.extension.sendRequest({method: "getLocalStorage", key: "nrColor"}, function(response) {
-	tempStyle += response.data + "} .libextcpp0x_nrol li div {border-left: 5px solid #";
+	tempStyle += response.data + "} .libextcpp0x_nrol li div {border-left: 5px solid ";
 });
 chrome.extension.sendRequest({method: "getLocalStorage", key: "borColor"}, function(response) {
 	tempStyle += response.data + " !important;}";

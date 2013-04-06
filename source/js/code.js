@@ -1,5 +1,5 @@
 // code.js - ExtCpp0x's module
-// author: programer1234
+// author: xevuel
 // Chrome port: m4tx
 
 var headEl = document.createElement("div");

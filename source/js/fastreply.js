@@ -1,5 +1,5 @@
 // fastreply.js - ExtCpp0x's module
-// author: programer1234
+// author: xevuel
 // Chrome port: m4tx
 
 var openTopic = false;

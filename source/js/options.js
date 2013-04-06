@@ -43,12 +43,8 @@ function defaults() {
 	document.getElementById('defaultNr').checked = (back.getDefaultValue('defaultNr') == "true");
 	
 	document.getElementById('nrColor').value = back.getDefaultValue('nrColor');
-	document.getElementById('nrColor').focus();
-	document.getElementById('nrColor').blur();
 
 	document.getElementById('borColor').value = back.getDefaultValue('borColor');
-	document.getElementById('borColor').focus();
-	document.getElementById('borColor').blur();
 	
 	document.getElementById('enFastreply').checked = (back.getDefaultValue('enFastreply') == "true");
 	document.getElementById('enCite').checked = (back.getDefaultValue('enCite') == "true");

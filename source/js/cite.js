@@ -1,5 +1,5 @@
 // cite.js - ExtCpp0x's module
-// author: programer1234
+// author: xevuel
 // Chrome port: m4tx
 
 chrome.extension.sendRequest({method: "getLocalStorage", key: "enFastreply"}, function(response) {
@@ -11,6 +11,7 @@ chrome.extension.sendRequest({method: "getLocalStorage", key: "enFastreply"}, fu
 			return;
 		}
 		var szNewPostLink = "./edytuj.php?";
+		var docFragDiv = document.createElement("div");
 
 		var PostPanel = document.getElementsByClassName("PostPanel");
 		for(var i in PostPanel)
@@ -28,8 +29,37 @@ chrome.extension.sendRequest({method: "getLocalStorage", key: "enFastreply"}, fu
 				 PostPanel[i].insertBefore(divEl, PostPanel[i].lastChild);
 				 aEl.addEventListener("click", function(evt){
 					evt.preventDefault();
-					var text = HTML2STC(this.parentNode.parentNode.parentNode.parentNode.previousSibling.getElementsByClassName("Description")[0]);
-
+					var text = "";
+					for(var j = 0; j < window.getSelection().rangeCount; j++)
+					{
+					   var range = window.getSelection().getRangeAt(j);
+					   if(!range.collapsed)
+					   {
+						  var docFrag = window.getSelection().getRangeAt(j).cloneContents();
+						  var parent = window.getSelection().getRangeAt(j).commonAncestorContainer;
+						  if(parent != null && parent.nodeName != "#text")
+						  {
+							 var cloneParent;
+							 while(parent.className == undefined || !parent.className.match(/\bDescription\b/))
+							 {
+								cloneParent = parent.cloneNode(false);
+								cloneParent.appendChild(docFrag);
+								docFrag = cloneParent;
+								parent = parent.parentNode;
+								if(parent == null)
+								   break;
+							 }
+						  }
+						  if(docFragDiv.hasChildNodes())
+							 while (docFragDiv.firstChild)
+								docFragDiv.removeChild(docFragDiv.firstChild);
+						  docFragDiv.appendChild(docFrag);
+						  text += HTML2STC(docFragDiv);
+					   }
+					}
+					if(window.getSelection().rangeCount == 0 || window.getSelection().getRangeAt(0).collapsed)
+					   text = HTML2STC(this.parentNode.parentNode.parentNode.parentNode.previousSibling.getElementsByClassName("Description")[0]);
+               
 					var form = document.getElementById('libextcpp0x_fastreplyform');
 					var el = form.getElementsByTagName('textarea')[0];
 					el.nextSibling.style.display = "inline";

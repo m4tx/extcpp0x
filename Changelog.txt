@@ -1,3 +1,7 @@
+Wersja 1.2.1 (07-04-2013)
+- Funkcja cytowania postów została wzbogacona o możliwość cytowania wyłącznie zaznaczonego fragmentu tekstu
+- Zrezygnowano z biblioteki jscolor na rzecz color inputów z HTML5, co pozwoliło na zmniejszenie dodatku o ponad 10kB 
+
 Wersja 1.2 (07-01-2013)
 - Dodano opcję szybkiej odpowiedzi
 - Dodano możliwość szybkiego cytowania postów

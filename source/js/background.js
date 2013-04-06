@@ -34,10 +34,10 @@ function getDefaultValue(key) {
 		return "false";
 		break;
 	case "nrColor":
-		return "AFAFAF";
+		return "#AFAFAF";
 		break;
 	case "borColor":
-		return "6CE26C";
+		return "#6CE26C";
 		break;
 	case "enFastreply":
 		return "true";
